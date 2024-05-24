@@ -10,8 +10,8 @@ struct {
 } send, recv;
 int main() {
   int msqid, pid, i, n, n1;
-  printf("how many message u want to enter:");
-  scanf("%d ", &n1);
+  printf("how many message u t enter:");
+  scanf("%d", &n1);
   msqid = msgget((key_t)123456, IPC_CREAT | 0700);
   if (msqid < 0) {
     printf("msgget error: ");
@@ -31,7 +31,6 @@ int main() {
     }
     msgctl(msqid, IPC_RMID, 0);
   } else {
-
     for (i = 1; i <= n1; ++i) {
       n = msgrcv(msqid, &recv, 512, 1, 0);
       send.mtype = 2;
